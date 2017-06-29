@@ -148,13 +148,13 @@ public class StanfordCoreNLPServer implements Runnable {
     String defaultParserPath;
     ClassLoader classLoader = getClass().getClassLoader();
     URL srResource =
-            classLoader.getResource("edu/stanford/nlp/models/srparser/englishSR.ser.gz");
+            classLoader.getResource("models/srparser/englishSR.ser.gz");
     log("setting default constituency parser");
     if (srResource != null) {
-      defaultParserPath = "edu/stanford/nlp/models/srparser/englishSR.ser.gz";
+      defaultParserPath = "models/srparser/englishSR.ser.gz";
       log("using SR parser: edu/stanford/nlp/models/srparser/englishSR.ser.gz");
     } else {
-      defaultParserPath = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+      defaultParserPath = "models/lexparser/englishPCFG.ser.gz";
       log("warning: cannot find edu/stanford/nlp/models/srparser/englishSR.ser.gz");
       log("using: edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz instead");
       log("to use shift reduce parser download English models jar from:");

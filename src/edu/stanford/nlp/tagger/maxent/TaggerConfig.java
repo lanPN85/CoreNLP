@@ -246,7 +246,7 @@ public class TaggerConfig extends Properties /* Inherits implementation of Seria
     this.setProperty(ENCODING_PROPERTY, props.getProperty(ENCODING_PROPERTY, this.getProperty(ENCODING_PROPERTY)));
     this.setProperty("sgml", props.getProperty("sgml", this.getProperty("sgml")));
     this.setProperty("verbose", props.getProperty("verbose", this.getProperty("verbose")));
-    this.setProperty("verboseResults", props.getProperty("verboseResults", this.getProperty("verboseResults")));
+    //this.setProperty("verboseResults", props.getProperty("verboseResults", this.getProperty("verboseResults")));
 
     this.setProperty("regL1", props.getProperty("regL1", this.getProperty("regL1")));
 

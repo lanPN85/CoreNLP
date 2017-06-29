@@ -22,7 +22,7 @@ public class UniversalPOSMapper  {
   /** A logger for this class */
   private static Redwood.RedwoodChannels log = Redwood.channels(UniversalPOSMapper.class);
 
-  public static final String DEFAULT_TSURGEON_FILE = "edu/stanford/nlp/models/upos/ENUniversalPOS.tsurgeon";
+  public static final String DEFAULT_TSURGEON_FILE = "models/upos/ENUniversalPOS.tsurgeon";
 
   private static boolean loaded = false;
 

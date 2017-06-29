@@ -24,7 +24,7 @@ public class DependencyParserDemo  {
 
   public static void main(String[] args) {
     String modelPath = DependencyParser.DEFAULT_MODEL;
-    String taggerPath = "edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+    String taggerPath = "models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
 
     for (int argIndex = 0; argIndex < args.length; ) {
       switch (args[argIndex]) {

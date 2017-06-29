@@ -237,7 +237,7 @@ public class MaxentTagger extends Tagger implements ListProcessor<List<? extends
   public static final String DEFAULT_NLP_GROUP_MODEL_PATH =
     new File(TAGGER_HOME, "english-left3words-distsim.tagger").getPath();
   public static final String DEFAULT_JAR_PATH =
-    "edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+          "models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
   public static final String DEFAULT_DISTRIBUTION_PATH =
     "models/english-left3words-distsim.tagger";
 

@@ -36,7 +36,7 @@ public class JollyDayHolidays implements Env.Binder {
 
   @Override
   public void init(String prefix, Properties props) {
-    String xmlPath = props.getProperty(prefix + "xml", "edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml");
+    String xmlPath = props.getProperty(prefix + "xml", "models/sutime/jollyday/Holidays_sutime.xml");
     String xmlPathType = props.getProperty(prefix + "pathtype", "classpath");
     varPrefix = props.getProperty(prefix + "prefix", varPrefix);
     logger.info("Initializing JollyDayHoliday for SUTime from " + xmlPathType + ' ' + xmlPath + " as " + prefix);

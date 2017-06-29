@@ -388,7 +388,7 @@ public class ArrayCoreMap implements CoreMap /*, Serializable */ {
       }
       if (include) {
         if (s.length() > 1) {
-          s.append(' ');
+          s.append('\t');
         }
         s.append(name);
         s.append('=');

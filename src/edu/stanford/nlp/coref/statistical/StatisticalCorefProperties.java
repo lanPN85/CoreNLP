@@ -16,7 +16,7 @@ public class StatisticalCorefProperties {
   }
 
   private static String getDefaultModelPath(Properties props, String modelName) {
-    return "edu/stanford/nlp/models/coref/statistical/" + modelName +
+    return "models/coref/statistical/" + modelName +
         (CorefProperties.conll(props) ? "_conll" : "") + ".ser.gz";
   }
 
@@ -42,7 +42,7 @@ public class StatisticalCorefProperties {
 
   public static String wordCountsPath(Properties props) {
     return PropertiesUtils.getString(props, "coref.statistical.wordCounts",
-        "edu/stanford/nlp/models/coref/statistical/word_counts.ser.gz");
+            "models/coref/statistical/word_counts.ser.gz");
   }
 
   public static double[] pairwiseScoreThresholds(Properties props) {

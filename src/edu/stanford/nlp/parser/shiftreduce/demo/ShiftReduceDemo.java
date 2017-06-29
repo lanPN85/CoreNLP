@@ -23,8 +23,8 @@ public class ShiftReduceDemo  {
   /** A logger for this class */
   private static Redwood.RedwoodChannels log = Redwood.channels(ShiftReduceDemo.class);
   public static void main(String[] args) {
-    String modelPath = "edu/stanford/nlp/models/srparser/englishSR.ser.gz";
-    String taggerPath = "edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+    String modelPath = "models/srparser/englishSR.ser.gz";
+    String taggerPath = "models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
 
     for (int argIndex = 0; argIndex < args.length; ) {
       switch (args[argIndex]) {

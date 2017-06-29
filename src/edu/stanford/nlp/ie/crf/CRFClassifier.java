@@ -159,7 +159,7 @@ public class CRFClassifier<IN extends CoreMap> extends AbstractSequenceClassifie
   /**
    * Name of default serialized classifier resource to look for in a jar file.
    */
-  public static final String DEFAULT_CLASSIFIER = "/edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz";
+  public static final String DEFAULT_CLASSIFIER = "/models/ner/english.all.3class.distsim.crf.ser.gz";
   private static final boolean VERBOSE = false;
 
   /**

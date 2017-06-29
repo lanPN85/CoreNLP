@@ -27,7 +27,7 @@ import java.util.function.Predicate;
 public class GrammaticalStructureConversionUtils {
 
 
-  public static final String DEFAULT_PARSER_FILE = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+  public static final String DEFAULT_PARSER_FILE = "models/lexparser/englishPCFG.ser.gz";
 
   /**
    * Print typed dependencies in either the Stanford dependency representation

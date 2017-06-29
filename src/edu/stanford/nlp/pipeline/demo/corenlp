@@ -20,8 +20,8 @@
 # Set this to the username you would like to use to run the server.
 # Make sure that this user can authbind to port 80!
 #
-SERVER_USER="nlp"
-CORENLP_DIR="/opt/corenlp"
+SERVER_USER="root"
+CORENLP_DIR="/home/lanpn/source/CoreNLP/classes/artifacts"
 
 
 do_start()
@@ -35,7 +35,7 @@ do_start()
     for JAR in `find "$CORENLP_DIR" -name "*.jar"`; do
       CLASSPATH="$CLASSPATH:$JAR"
     done
-    nohup su nlp -c "/usr/local/bin/authbind --deep java -Djava.net.preferIPv4Stack=true -Djava.io.tmpdir=/opt/corenlp -cp "$CLASSPATH" -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -XX:+UseStringDeduplication -XX:SoftRefLRUPolicyMSPerMB=100 -mx20g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 80" \
+    nohup su nlp -c "/usr/local/bin/authbind --deep java -Djava.net.preferIPv4Stack=true -Djava.io.tmpdir=/opt/corenlp -cp "$CLASSPATH" -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -XX:+UseStringDeduplication -XX:SoftRefLRUPolicyMSPerMB=100 -mx20g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 1192" \
       > "$CORENLP_DIR/stdout.log" 2> "$CORENLP_DIR/stderr.log" &
     echo "CoreNLP server started."
   fi  

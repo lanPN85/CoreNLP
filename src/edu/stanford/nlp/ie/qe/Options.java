@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 public class Options {
 
-  private static final String RULES_DIR = "edu/stanford/nlp/models/ie/qe/rules";
+  private static final String RULES_DIR = "models/ie/qe/rules";
   private static final String[] DEFAULT_GRAMMAR_FILES = {RULES_DIR + "/english.qe.txt"};
   private static final String DEFAULT_PREFIX_FILE = RULES_DIR + "/prefixes.txt";
   private static final String DEFAULT_UNITS_FILE = RULES_DIR + "/units.txt";

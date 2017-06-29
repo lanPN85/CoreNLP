@@ -45,7 +45,7 @@ public class UniversalDependenciesFeatureAnnotator  {
   private static final Redwood.RedwoodChannels log = Redwood.channels(UniversalDependenciesFeatureAnnotator.class);
 
 
-  private static final String FEATURE_MAP_FILE = "edu/stanford/nlp/models/ud/feature_map.txt";
+  private static final String FEATURE_MAP_FILE = "models/ud/feature_map.txt";
   private HashMap<String,HashMap<String,String>> posFeatureMap;
   private HashMap<String,HashMap<String,String>> wordPosFeatureMap;
 

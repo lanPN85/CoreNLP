@@ -157,7 +157,7 @@ public class SingletonPredictor  {
   }
 
   private static String getPathSingletonPredictor(Properties props) {
-    return PropertiesUtils.getString(props, "coref.path.singletonPredictor", "edu/stanford/nlp/models/dcoref/singleton.predictor.ser");
+    return PropertiesUtils.getString(props, "coref.path.singletonPredictor", "models/dcoref/singleton.predictor.ser");
   }
 
   public static void main(String[] args) throws Exception {

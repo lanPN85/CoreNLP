@@ -35,7 +35,7 @@ public class Options {
   String grammarFilename = null;
   Env.Binder[] binders = null;
 
-  static final String DEFAULT_GRAMMAR_FILES = "edu/stanford/nlp/models/sutime/defs.sutime.txt,edu/stanford/nlp/models/sutime/english.sutime.txt,edu/stanford/nlp/models/sutime/english.holidays.sutime.txt";
+  static final String DEFAULT_GRAMMAR_FILES = "models/sutime/defs.sutime.txt,edu/stanford/nlp/models/sutime/english.sutime.txt,edu/stanford/nlp/models/sutime/english.holidays.sutime.txt";
   static final String[] DEFAULT_BINDERS = { "edu.stanford.nlp.time.JollyDayHolidays" };
   //static final String[] DEFAULT_BINDERS = { };
 

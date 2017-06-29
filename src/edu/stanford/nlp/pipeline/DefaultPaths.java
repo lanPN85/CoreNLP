@@ -10,60 +10,60 @@ import java.lang.reflect.Field;
  */
 public class DefaultPaths {
 
-  public static final String DEFAULT_POS_MODEL = "edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+  public static final String DEFAULT_POS_MODEL = "models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
 
-  public static final String DEFAULT_PARSER_MODEL = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+  public static final String DEFAULT_PARSER_MODEL = "models/lexparser/englishPCFG.ser.gz";
 
   @SuppressWarnings("UnusedDeclaration") // Used in a script
   public static final String DEFAULT_DEPENDENCY_PARSER_MODEL = DependencyParser.DEFAULT_MODEL;
 
-  public static final String DEFAULT_NER_THREECLASS_MODEL = "edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz";
-  public static final String DEFAULT_NER_CONLL_MODEL = "edu/stanford/nlp/models/ner/english.conll.4class.distsim.crf.ser.gz";
-  public static final String DEFAULT_NER_MUC_MODEL = "edu/stanford/nlp/models/ner/english.muc.7class.distsim.crf.ser.gz";
-  public static final String DEFAULT_NER_GAZETTE_MAPPING = "edu/stanford/nlp/models/ner/regexner.patterns";
+  public static final String DEFAULT_NER_THREECLASS_MODEL = "models/ner/english.all.3class.distsim.crf.ser.gz";
+  public static final String DEFAULT_NER_CONLL_MODEL = "models/ner/english.conll.4class.distsim.crf.ser.gz";
+  public static final String DEFAULT_NER_MUC_MODEL = "models/ner/english.muc.7class.distsim.crf.ser.gz";
+  public static final String DEFAULT_NER_GAZETTE_MAPPING = "models/ner/regexner.patterns";
 
-  public static final String DEFAULT_REGEXNER_RULES = "edu/stanford/nlp/models/regexner/type_map_clean";
-  public static final String DEFAULT_GENDER_FIRST_NAMES = "edu/stanford/nlp/models/gender/first_name_map_small";
+  public static final String DEFAULT_REGEXNER_RULES = "models/regexner/type_map_clean";
+  public static final String DEFAULT_GENDER_FIRST_NAMES = "models/gender/first_name_map_small";
 
-  public static final String DEFAULT_TRUECASE_MODEL = "edu/stanford/nlp/models/truecase/truecasing.fast.caseless.qn.ser.gz";
-  public static final String DEFAULT_TRUECASE_DISAMBIGUATION_LIST = "edu/stanford/nlp/models/truecase/MixDisambiguation.list";
+  public static final String DEFAULT_TRUECASE_MODEL = "models/truecase/truecasing.fast.caseless.qn.ser.gz";
+  public static final String DEFAULT_TRUECASE_DISAMBIGUATION_LIST = "models/truecase/MixDisambiguation.list";
 
-  public static final String DEFAULT_DCOREF_ANIMATE = "edu/stanford/nlp/models/dcoref/animate.unigrams.txt";
-  public static final String DEFAULT_DCOREF_DEMONYM = "edu/stanford/nlp/models/dcoref/demonyms.txt";
-  public static final String DEFAULT_DCOREF_INANIMATE = "edu/stanford/nlp/models/dcoref/inanimate.unigrams.txt";
-  public static final String DEFAULT_DCOREF_STATES = "edu/stanford/nlp/models/dcoref/state-abbreviations.txt";
+  public static final String DEFAULT_DCOREF_ANIMATE = "models/dcoref/animate.unigrams.txt";
+  public static final String DEFAULT_DCOREF_DEMONYM = "models/dcoref/demonyms.txt";
+  public static final String DEFAULT_DCOREF_INANIMATE = "models/dcoref/inanimate.unigrams.txt";
+  public static final String DEFAULT_DCOREF_STATES = "models/dcoref/state-abbreviations.txt";
 
-  public static final String DEFAULT_DCOREF_COUNTRIES = "edu/stanford/nlp/models/dcoref/countries";
-  public static final String DEFAULT_DCOREF_STATES_AND_PROVINCES = "edu/stanford/nlp/models/dcoref/statesandprovinces";
-  public static final String DEFAULT_DCOREF_GENDER_NUMBER = "edu/stanford/nlp/models/dcoref/gender.map.ser.gz";
+  public static final String DEFAULT_DCOREF_COUNTRIES = "models/dcoref/countries";
+  public static final String DEFAULT_DCOREF_STATES_AND_PROVINCES = "models/dcoref/statesandprovinces";
+  public static final String DEFAULT_DCOREF_GENDER_NUMBER = "models/dcoref/gender.map.ser.gz";
   
-  public static final String DEFAULT_DCOREF_SINGLETON_MODEL = "edu/stanford/nlp/models/dcoref/singleton.predictor.ser";
-  public static final String DEFAULT_DCOREF_DICT1 = "edu/stanford/nlp/models/dcoref/coref.dict1.tsv";
-  public static final String DEFAULT_DCOREF_DICT2 = "edu/stanford/nlp/models/dcoref/coref.dict2.tsv";
-  public static final String DEFAULT_DCOREF_DICT3 = "edu/stanford/nlp/models/dcoref/coref.dict3.tsv";
-  public static final String DEFAULT_DCOREF_DICT4 = "edu/stanford/nlp/models/dcoref/coref.dict4.tsv";
-  public static final String DEFAULT_DCOREF_NE_SIGNATURES = "edu/stanford/nlp/models/dcoref/ne.signatures.txt";
+  public static final String DEFAULT_DCOREF_SINGLETON_MODEL = "models/dcoref/singleton.predictor.ser";
+  public static final String DEFAULT_DCOREF_DICT1 = "models/dcoref/coref.dict1.tsv";
+  public static final String DEFAULT_DCOREF_DICT2 = "models/dcoref/coref.dict2.tsv";
+  public static final String DEFAULT_DCOREF_DICT3 = "models/dcoref/coref.dict3.tsv";
+  public static final String DEFAULT_DCOREF_DICT4 = "models/dcoref/coref.dict4.tsv";
+  public static final String DEFAULT_DCOREF_NE_SIGNATURES = "models/dcoref/ne.signatures.txt";
 
-  public static final String DEFAULT_NFL_ENTITY_MODEL = "edu/stanford/nlp/models/machinereading/nfl/nfl_entity_model.ser";
-  public static final String DEFAULT_NFL_RELATION_MODEL = "edu/stanford/nlp/models/machinereading/nfl/nfl_relation_model.ser";
-  public static final String DEFAULT_NFL_GAZETTEER = "edu/stanford/nlp/models/machinereading/nfl/NFLgazetteer.txt";
+  public static final String DEFAULT_NFL_ENTITY_MODEL = "models/machinereading/nfl/nfl_entity_model.ser";
+  public static final String DEFAULT_NFL_RELATION_MODEL = "models/machinereading/nfl/nfl_relation_model.ser";
+  public static final String DEFAULT_NFL_GAZETTEER = "models/machinereading/nfl/NFLgazetteer.txt";
   
-  public static final String DEFAULT_SUP_RELATION_EX_RELATION_MODEL = "edu/stanford/nlp/models/supervised_relation_extractor/roth_relation_model_pipelineNER.ser";
+  public static final String DEFAULT_SUP_RELATION_EX_RELATION_MODEL = "models/supervised_relation_extractor/roth_relation_model_pipelineNER.ser";
 
-  public static final String DEFAULT_NATURALLI_AFFINITIES = "edu/stanford/nlp/models/naturalli/affinities";  // If you change this key, also change bin/mkopenie.sh
-  public static final String DEFAULT_OPENIE_CLAUSE_SEARCHER = "edu/stanford/nlp/models/naturalli/clauseSearcherModel.ser.gz";  // If you change this key, also change bin/mkopenie.sh
+  public static final String DEFAULT_NATURALLI_AFFINITIES = "models/naturalli/affinities";  // If you change this key, also change bin/mkopenie.sh
+  public static final String DEFAULT_OPENIE_CLAUSE_SEARCHER = "models/naturalli/clauseSearcherModel.ser.gz";  // If you change this key, also change bin/mkopenie.sh
 
-  public static final String DEFAULT_KBP_CLASSIFIER = "edu/stanford/nlp/models/kbp/tac-re-lr.ser.gz";
-  public static final String DEFAULT_KBP_REGEXNER_CASED = "edu/stanford/nlp/models/kbp/regexner_cased.tab";
-  public static final String DEFAULT_KBP_REGEXNER_CASELESS = "edu/stanford/nlp/models/kbp/regexner_caseless.tab";
-  public static final String DEFAULT_KBP_SEMGREX_DIR = "edu/stanford/nlp/models/kbp/semgrex";
-  public static final String DEFAULT_KBP_TOKENSREGEX_DIR = "edu/stanford/nlp/models/kbp/tokensregex";
+  public static final String DEFAULT_KBP_CLASSIFIER = "models/kbp/tac-re-lr.ser.gz";
+  public static final String DEFAULT_KBP_REGEXNER_CASED = "models/kbp/regexner_cased.tab";
+  public static final String DEFAULT_KBP_REGEXNER_CASELESS = "models/kbp/regexner_caseless.tab";
+  public static final String DEFAULT_KBP_SEMGREX_DIR = "models/kbp/semgrex";
+  public static final String DEFAULT_KBP_TOKENSREGEX_DIR = "models/kbp/tokensregex";
 
   public static final String DEFAULT_KBP_TOKENSREGEX_NER_SETTINGS =
           "ignorecase=true,validpospattern=^(NN|JJ).*,edu/stanford/nlp/models/kbp/regexner_caseless.tab;" +
-                  "edu/stanford/nlp/models/kbp/regexner_cased.tab";
+                  "models/kbp/regexner_cased.tab";
 
-  public static final String DEFAULT_WIKIDICT_TSV = "edu/stanford/nlp/models/kbp/wikidict.tab.gz";
+  public static final String DEFAULT_WIKIDICT_TSV = "models/kbp/wikidict.tab.gz";
 
 
   private DefaultPaths() {

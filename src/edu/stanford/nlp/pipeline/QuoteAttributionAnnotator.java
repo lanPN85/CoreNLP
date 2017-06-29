@@ -103,14 +103,14 @@ public class QuoteAttributionAnnotator implements Annotator {
   // settings
   public static final String DEFAULT_QMSIEVES = "tri,dep,onename,voc,paraend,conv,sup,loose";
   public static final String DEFAULT_MSSIEVES = "det,top";
-  public static final String DEFAULT_MODEL_PATH = "edu/stanford/nlp/models/quoteattribution/quoteattribution_model.ser";
+  public static final String DEFAULT_MODEL_PATH = "models/quoteattribution/quoteattribution_model.ser";
 
   // these paths go in the props file
-  public static String FAMILY_WORD_LIST = "edu/stanford/nlp/models/quoteattribution/family_words.txt";
-  public static String ANIMACY_WORD_LIST = "edu/stanford/nlp/models/quoteattribution/animate.unigrams.txt";
-  public static String GENDER_WORD_LIST = "edu/stanford/nlp/models/quoteattribution/gender_filtered.txt";
+  public static String FAMILY_WORD_LIST = "models/quoteattribution/family_words.txt";
+  public static String ANIMACY_WORD_LIST = "models/quoteattribution/animate.unigrams.txt";
+  public static String GENDER_WORD_LIST = "models/quoteattribution/gender_filtered.txt";
   public static String COREF_PATH = "";
-  public static String MODEL_PATH = "edu/stanford/nlp/models/quoteattribution/quoteattribution_model.ser";
+  public static String MODEL_PATH = "models/quoteattribution/quoteattribution_model.ser";
   public static String CHARACTERS_FILE = "";
   public boolean buildCharacterMapPerAnnotation = false;
 

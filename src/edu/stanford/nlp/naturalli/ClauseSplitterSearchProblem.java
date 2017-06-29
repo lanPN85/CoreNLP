@@ -342,7 +342,7 @@ public class ClauseSplitterSearchProblem  {
   /**
    * The basic method for splitting off a clause of a tree.
    * This modifies the tree in place.
-   * This method addtionally follows ref edges.
+   * This method additionally follows ref edges.
    *
    * @param tree The tree to split a clause from.
    * @param toKeep The edge representing the clause to keep.

@@ -127,7 +127,7 @@ public class LexicalizedParser extends ParserGrammar implements Serializable  {
   private static final String SERIALIZED_PARSER_PROPERTY = "edu.stanford.nlp.SerializedLexicalizedParser";
   public static final String DEFAULT_PARSER_LOC = ((System.getenv("NLP_PARSER") != null) ?
                                                    System.getenv("NLP_PARSER") :
-                                                   "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz");
+          "models/lexparser/englishPCFG.ser.gz");
 
   /**
    * Construct a new LexicalizedParser object from a previously

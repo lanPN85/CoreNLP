@@ -292,7 +292,7 @@ public class HybridCorefProperties {
   }
 
   public static String getGenderNumber(Properties props) {
-    return PropertiesUtils.getString(props, GENDER_NUMBER_PROP, "edu/stanford/nlp/models/dcoref/gender.data.gz");
+    return PropertiesUtils.getString(props, GENDER_NUMBER_PROP, "models/dcoref/gender.data.gz");
   }
 
   public static boolean storeTrainData(Properties props) {

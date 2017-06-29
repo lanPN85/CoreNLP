@@ -38,7 +38,7 @@ import edu.stanford.nlp.util.IntPair;
  */
 public class SentimentAnnotator implements Annotator {
 
-  private static final String DEFAULT_MODEL = "edu/stanford/nlp/models/sentiment/sentiment.ser.gz";
+  private static final String DEFAULT_MODEL = "models/sentiment/sentiment.ser.gz";
 
   private final String modelPath;
   private final SentimentModel model;

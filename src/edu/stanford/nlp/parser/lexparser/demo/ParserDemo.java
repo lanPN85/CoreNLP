@@ -30,7 +30,7 @@ class ParserDemo {
    *
    */
   public static void main(String[] args) {
-    String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+    String parserModel = "models/lexparser/englishPCFG.ser.gz";
     if (args.length > 0) {
       parserModel = args[0];
     }

@@ -1,47 +1,28 @@
 package edu.stanford.nlp.process;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Reader;
-import java.util.Iterator;
-import java.util.Properties;
-
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.ling.Word;
 import edu.stanford.nlp.util.PropertiesUtils;
 import edu.stanford.nlp.util.StringUtils;
 
-/**
- * A WhitespaceTokenizer is a tokenizer that splits on and discards only
- * whitespace characters.
- * This implementation returns Word objects. It has a parameter for whether
- * to make EOL a token or whether to treat EOL characters as whitespace.
- * If an EOL is a token, the class returns it as a Word with String value "\n".
- * <p/>
- * <i>Implementation note:</i> This was rewritten in Apr 2006 to discard the
- * old StreamTokenizer based implementation and to replace it with a
- * Unicode compliant JFlex-based version.
- *
- * @author Joseph Smarr (jsmarr@stanford.edu)
- * @author Teg Grenager (grenager@stanford.edu)
- * @author Roger Levy
- * @author Christopher Manning
- */
-public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T> {
+import java.io.*;
+import java.util.Iterator;
+import java.util.Properties;
 
-    private WhitespaceLexer lexer;
+/**
+ * Created by lanpn on 6/27/17.
+ */
+public class TabTokenizer<T extends HasWord> extends AbstractTokenizer<T> {
     private final boolean eolIsSignificant;
+    private TabLexer lexer;
 
     /**
-     * A factory which vends WhitespaceTokenizers.
+     * A factory which vends TabTokenizers.
      *
      * @author Christopher Manning
      */
-    public static class WhitespaceTokenizerFactory<T extends HasWord> implements TokenizerFactory<T> {
+    public static class TabTokenizerFactory<T extends HasWord> implements TokenizerFactory<T> {
 
         private boolean tokenizeNLs;
         private LexedTokenFactory<T> factory;
@@ -56,23 +37,23 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
          * @return A TokenizerFactory that returns Word objects
          */
         public static TokenizerFactory<Word> newTokenizerFactory() {
-            return new WhitespaceTokenizerFactory<>(new WordTokenFactory(),
+            return new TabTokenizer.TabTokenizerFactory<>(new WordTokenFactory(),
                     false);
         }
 
-        public WhitespaceTokenizerFactory(LexedTokenFactory<T> factory) {
+        public TabTokenizerFactory(LexedTokenFactory<T> factory) {
             this(factory, false);
         }
 
-        public WhitespaceTokenizerFactory(LexedTokenFactory<T> factory,
-                                          String options) {
+        public TabTokenizerFactory(LexedTokenFactory<T> factory,
+                                   String options) {
             this.factory = factory;
             Properties prop = StringUtils.stringToProperties(options);
             this.tokenizeNLs = PropertiesUtils.getBool(prop, "tokenizeNLs", false);
         }
 
-        public WhitespaceTokenizerFactory(LexedTokenFactory<T> factory,
-                                          boolean tokenizeNLs) {
+        public TabTokenizerFactory(LexedTokenFactory<T> factory,
+                                   boolean tokenizeNLs) {
             this.factory = factory;
             this.tokenizeNLs = tokenizeNLs;
         }
@@ -82,7 +63,7 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
         }
 
         public Tokenizer<T> getTokenizer(Reader r) {
-            return new WhitespaceTokenizer<>(factory, r, tokenizeNLs);
+            return new TabTokenizer<>(factory, r, tokenizeNLs);
         }
 
         public Tokenizer<T> getTokenizer(Reader r, String extraOptions) {
@@ -90,7 +71,7 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
             boolean tokenizeNewlines =
                     PropertiesUtils.getBool(prop, "tokenizeNLs", this.tokenizeNLs);
 
-            return new WhitespaceTokenizer<>(factory, r, tokenizeNewlines);
+            return new TabTokenizer<>(factory, r, tokenizeNewlines);
         }
 
 
@@ -100,12 +81,12 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
         }
     } // end class TabTokenizerFactory
 
-    public static WhitespaceTokenizerFactory<CoreLabel> newCoreLabelTokenizerFactory(String options) {
-        return new WhitespaceTokenizerFactory<>(new CoreLabelTokenFactory(), options);
+    public static TabTokenizer.TabTokenizerFactory<CoreLabel> newCoreLabelTokenizerFactory(String options) {
+        return new TabTokenizer.TabTokenizerFactory<>(new CoreLabelTokenFactory(), options);
     }
 
-    public static WhitespaceTokenizerFactory<CoreLabel> newCoreLabelTokenizerFactory() {
-        return new WhitespaceTokenizerFactory<>(new CoreLabelTokenFactory());
+    public static TabTokenizer.TabTokenizerFactory<CoreLabel> newCoreLabelTokenizerFactory() {
+        return new TabTokenizer.TabTokenizerFactory<>(new CoreLabelTokenFactory());
     }
 
     /**
@@ -122,7 +103,7 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
         }
         try {
             token = (T) lexer.next();
-            while (token != null && token.word().equals(WhitespaceLexer.NEWLINE)) {
+            while (token != null && token.word().equals(TabLexer.NEWLINE)) {
                 if (eolIsSignificant) {
                     return token;
                 } else {
@@ -136,38 +117,38 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
     }
 
     /**
-     * Constructs a new WhitespaceTokenizer
+     * Constructs a new TabTokenizer
      *
      * @param r                The Reader that is its source.
      * @param eolIsSignificant Whether eol tokens should be returned.
      */
-    public WhitespaceTokenizer(LexedTokenFactory factory,
+    public TabTokenizer(LexedTokenFactory factory,
                                Reader r, boolean eolIsSignificant) {
         this.eolIsSignificant = eolIsSignificant;
         // The conditional below is perhaps currently needed in LexicalizedParser, since
         // it passes in a null arg while doing type-checking for sentence escaping
         // but StreamTokenizer barfs on that.  But maybe shouldn't be here.
         if (r != null) {
-            lexer = new WhitespaceLexer(r, factory);
+            lexer = new TabLexer(r, factory);
         }
     }
 
-    public static WhitespaceTokenizer<CoreLabel> newCoreLabelWhitespaceTokenizer(Reader r) {
-        return new WhitespaceTokenizer<>(new CoreLabelTokenFactory(), r, false);
+    public static TabTokenizer<CoreLabel> newCoreLabelTabTokenizer(Reader r) {
+        return new TabTokenizer<>(new CoreLabelTokenFactory(), r, false);
     }
 
-    public static WhitespaceTokenizer<CoreLabel> newCoreLabelWhitespaceTokenizer(Reader r, boolean tokenizeNLs) {
-        return new WhitespaceTokenizer<>(new CoreLabelTokenFactory(), r, tokenizeNLs);
+    public static TabTokenizer<CoreLabel> newCoreLabelTabTokenizer(Reader r, boolean tokenizeNLs) {
+        return new TabTokenizer<>(new CoreLabelTokenFactory(), r, tokenizeNLs);
     }
 
-    public static WhitespaceTokenizer<Word>
-    newWordWhitespaceTokenizer(Reader r) {
-        return newWordWhitespaceTokenizer(r, false);
+    public static TabTokenizer<Word>
+    newWordTabTokenizer(Reader r) {
+        return newWordTabTokenizer(r, false);
     }
 
-    public static WhitespaceTokenizer<Word>
-    newWordWhitespaceTokenizer(Reader r, boolean eolIsSignificant) {
-        return new WhitespaceTokenizer<>(new WordTokenFactory(), r,
+    public static TabTokenizer<Word>
+    newWordTabTokenizer(Reader r, boolean eolIsSignificant) {
+        return new TabTokenizer<>(new WordTokenFactory(), r,
                 eolIsSignificant);
     }
 
@@ -175,17 +156,17 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
    * Sets the source of this Tokenizer to be the Reader r.
 
   private void setSource(Reader r) {
-    lexer = new WhitespaceLexer(r);
+    lexer = new TabLexer(r);
   }
   ---- */
 
     public static TokenizerFactory<Word> factory() {
-        return new WhitespaceTokenizerFactory<>(new WordTokenFactory(),
+        return new TabTokenizer.TabTokenizerFactory<>(new WordTokenFactory(),
                 false);
     }
 
     public static TokenizerFactory<Word> factory(boolean eolIsSignificant) {
-        return new WhitespaceTokenizerFactory<>(new WordTokenFactory(),
+        return new TabTokenizer.TabTokenizerFactory<>(new WordTokenFactory(),
                 eolIsSignificant);
     }
 
@@ -194,7 +175,7 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
      * This is mainly as a testing aid, but it can also be quite useful
      * standalone to turn a corpus into a one token per line file of tokens.
      * <p/>
-     * Usage: <code>java edu.stanford.nlp.process.WhitespaceTokenizer filename
+     * Usage: <code>java edu.stanford.nlp.process.TabTokenizer filename
      * </code>
      *
      * @param args Command line arguments
@@ -208,20 +189,19 @@ public class WhitespaceTokenizer<T extends HasWord> extends AbstractTokenizer<T>
                 new InputStreamReader(new FileInputStream
                         (args[args.length - 1]), "UTF-8") :
                 new InputStreamReader(System.in, "UTF-8"));
-        WhitespaceTokenizer<Word> tokenizer =
-                new WhitespaceTokenizer<>(new WordTokenFactory(), reader,
+        TabTokenizer<Word> tokenizer =
+                new TabTokenizer<>(new WordTokenFactory(), reader,
                         eolIsSignificant);
         PrintWriter pw =
                 new PrintWriter(new OutputStreamWriter(System.out, "UTF-8"), true);
+        pw.println("Reading from " + args[args.length - 1]);
         while (tokenizer.hasNext()) {
             Word w = tokenizer.next();
-            if (w.value().equals(WhitespaceLexer.NEWLINE)) {
+            if (w.value().equals(TabLexer.NEWLINE)) {
                 pw.println("***CR***");
             } else {
                 pw.println(w);
             }
         }
     }
-
-} // end class WhitespaceTokenizer
-
+}
