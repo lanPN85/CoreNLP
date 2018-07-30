@@ -99,7 +99,7 @@ public class TabTokenizer<T extends HasWord> extends AbstractTokenizer<T> {
     protected T getNext() {
         T token = null;
         if (lexer == null) {
-            return token;
+            return null;
         }
         try {
             token = (T) lexer.next();
@@ -151,14 +151,6 @@ public class TabTokenizer<T extends HasWord> extends AbstractTokenizer<T> {
         return new TabTokenizer<>(new WordTokenFactory(), r,
                 eolIsSignificant);
     }
-
-  /* ----
-   * Sets the source of this Tokenizer to be the Reader r.
-
-  private void setSource(Reader r) {
-    lexer = new TabLexer(r);
-  }
-  ---- */
 
     public static TokenizerFactory<Word> factory() {
         return new TabTokenizer.TabTokenizerFactory<>(new WordTokenFactory(),

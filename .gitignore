@@ -9,3 +9,7 @@
 .idea
 build
 classes
+
+lib/
+.gradle/
+default/

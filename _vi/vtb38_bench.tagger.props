@@ -1,0 +1,35 @@
+## tagger training invoked at Fri Sep 29 12:40:19 ICT 2017 with arguments:
+                   model = _vi/vtb38_bench.tagger
+                    arch = left5words,vietnameseunknowns
+            wordFunction = 
+               trainFile = format=TSV,wordColumn=1,tagColumn=4,./_vi/vi-ud-train2.conllu
+         closedClassTags = 
+ closedClassTagThreshold = 40
+ curWordMinFeatureThresh = 2
+                   debug = false
+             debugPrefix = 
+            tagSeparator = 
+                encoding = UTF-8
+              iterations = 100
+                    lang = vietnamese
+    learnClosedClassTags = false
+        minFeatureThresh = 2
+           openClassTags = 
+rareWordMinFeatureThresh = 10
+          rareWordThresh = 6
+                  search = qn
+                    sgml = false
+            sigmaSquared = 0.5
+                   regL1 = 1.0
+               tagInside = 
+                tokenize = false
+        tokenizerFactory = 
+        tokenizerOptions = 
+                 verbose = true
+          verboseResults = true
+    veryCommonWordThresh = 50
+                xmlInput = 
+              outputFile = 
+            outputFormat = slashTags
+     outputFormatOptions = 
+                nthreads = 1

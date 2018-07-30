@@ -1,0 +1,9 @@
+*
+!.gitignore
+!*.sh
+!*.props
+!*.properties
+
+!bench_pos.tsv
+!merged_pos.tsv
+

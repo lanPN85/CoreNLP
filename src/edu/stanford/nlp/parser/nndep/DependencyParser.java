@@ -541,9 +541,17 @@ public class DependencyParser {
             String[] splits;
             int index = 0;
 
+            String delim = "\t";
+
             for (int k = 0; k < nDict; ++k) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
+
+                // Compatibility with standard CoreNLP
+                if (splits.length < 2) {
+                    delim = " ";
+                    splits = s.split(delim);
+                }
 
                 knownWords.add(splits[0]);
                 for (int i = 0; i < eSize; ++i)
@@ -552,7 +560,7 @@ public class DependencyParser {
             }
             for (int k = 0; k < nPOS; ++k) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
                 knownPos.add(splits[0]);
                 for (int i = 0; i < eSize; ++i)
                     E[index][i] = Double.parseDouble(splits[i + 1]);
@@ -560,7 +568,7 @@ public class DependencyParser {
             }
             for (int k = 0; k < nLabel; ++k) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
                 knownLabels.add(splits[0]);
                 for (int i = 0; i < eSize; ++i)
                     E[index][i] = Double.parseDouble(splits[i + 1]);
@@ -571,21 +579,21 @@ public class DependencyParser {
             double[][] W1 = new double[hSize][eSize * nTokens];
             for (int j = 0; j < W1[0].length; ++j) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
                 for (int i = 0; i < W1.length; ++i)
                     W1[i][j] = Double.parseDouble(splits[i]);
             }
 
             double[] b1 = new double[hSize];
             s = input.readLine();
-            splits = s.split("\t");
+            splits = s.split(delim);
             for (int i = 0; i < b1.length; ++i)
                 b1[i] = Double.parseDouble(splits[i]);
 
             double[][] W2 = new double[nLabel * 2 - 1][hSize];
             for (int j = 0; j < W2[0].length; ++j) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
                 for (int i = 0; i < W2.length; ++i)
                     W2[i][j] = Double.parseDouble(splits[i]);
             }
@@ -593,7 +601,7 @@ public class DependencyParser {
             preComputed = new ArrayList<>();
             while (preComputed.size() < nPreComputed) {
                 s = input.readLine();
-                splits = s.split("\t");
+                splits = s.split(delim);
                 for (String split : splits) {
                     preComputed.add(Integer.parseInt(split));
                 }
